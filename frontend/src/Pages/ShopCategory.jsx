@@ -3,9 +3,13 @@ import { ShopContext } from '../Context/ShopContext'
 import './CSS/ShopCategory.css'
 import dropdown_icon from '../Components/Assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
+import { useEffect } from 'react';
 
 const ShopCategory = (props) => {
   const {all_product} = useContext(ShopContext);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll ke atas
+  }, []);
   return (
     <div className='shop-category'>
       <img className='shopcategory-banner' src={props.banner} alt="" />

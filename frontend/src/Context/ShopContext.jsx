@@ -2,6 +2,7 @@ import React, {createContext, useEffect, useState} from 'react'
 
 export const ShopContext = createContext(null)
 
+
 const getDefaultCart = ()=>{
     let cart = {};
     for (let index = 0; index <300+1; index++){
@@ -15,8 +16,11 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_product] = useState ([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll ke atas
+      }, []);
     useEffect(()=>{
-        fetch('https://api-msib-6-toko-mebel-02.educalab.id/allproducts')
+        fetch('http://localhost:4000/allproducts')
         .then((response)=>{
             if (!response.ok) {
             throw new Error('Failed to fetch all products');
@@ -33,7 +37,7 @@ const ShopContextProvider = (props) => {
         .catch(error => {
           console.error('Error fetching all products:', error);})
         if(localStorage.getItem('auth-token')){
-            fetch('https://api-msib-6-toko-mebel-02.educalab.id/getcart', {
+            fetch('http://localhost:4000/getcart', {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -49,7 +53,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}));
         if(localStorage.getItem('auth-token')){
-            fetch('https://api-msib-6-toko-mebel-02.educalab.id/addtocart', {
+            fetch('http://localhost:4000/addtocart', {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -63,7 +67,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if(localStorage.getItem('auth-token')){
-            fetch('https://api-msib-6-toko-mebel-02.educalab.id/removefromcart', {
+            fetch('http://localhost:4000/removefromcart', {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -91,7 +95,7 @@ const ShopContextProvider = (props) => {
     const clearCart = ()=>{
         if(localStorage.getItem('auth-token')){
             try {
-                fetch("https://api-msib-6-toko-mebel-02.educalab.id/clearcart", {
+                fetch("http://localhost:4000/clearcart", {
                     method:'POST',
                     headers:{
                         Accept: 'application/form-data',
