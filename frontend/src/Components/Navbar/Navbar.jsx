@@ -14,23 +14,26 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true); // State untuk visibilitas navbar
+    const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
     const navigate = useNavigate();
 
-
-    const searchHandler = async ()=>{
+    const searchHandler = async () => {
         try {
-            const response = await axios.get(`https://api-msib-6-toko-mebel-02.educalab.id/search?query=${searchQuery}`);
+            const response = await axios.get(`http://localhost:4000/search?query=${searchQuery}`);
             setSearchResults(response.data);
             setShowResults(true);
         } catch (error) {
             console.error("Error fetching search results:", error);
         }
     }
+
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             searchHandler();
         }
     };
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (!event.target.closest('.nav-search') && !event.target.closest('.search-results')) {
@@ -43,6 +46,23 @@ const Navbar = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                setShowNavbar(false); // Sembunyikan navbar saat scroll ke bawah
+            } else {
+                setShowNavbar(true); // Tampilkan navbar saat scroll ke atas
+            }
+            setLastScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
+
     const handleResultClick = (productId) => {
         navigate(`/product/${productId}`);
     };
@@ -50,7 +70,7 @@ const Navbar = () => {
     const [menu, setMenu] = useState("shop");
 
     return (
-        <div className="navbar">
+        <div className={`navbar ${showNavbar ? 'visible' : 'hidden'}`}> {/* Menambahkan class untuk mengubah visibilitas navbar */}
             <div className="nav-logo">
                 <Link to='/'><img src={logo} alt="logo" /></Link>
             </div>
@@ -74,17 +94,18 @@ const Navbar = () => {
             </ul>
             <div className="nav-search-login-cart">
                 <div className="nav-search">
-                    <input  type="text" 
-                        placeholder="Cari..." 
-                        value={searchQuery} 
+                    <input
+                        type="text"
+                        placeholder="Cari..."
+                        value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         onKeyDown={handleKeyDown}
-                         />
+                    />
                     <Link to=''><img onClick={searchHandler} src={search_icon} alt="search" id="search_icon" /></Link>
                 </div>
                 {localStorage.getItem('auth-token') && ( // Menampilkan hanya jika ada token
                     <li onClick={() => { setMenu("reviews") }}>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/reviews'><img src={review_icon} alt="" id="review-icon"/></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/reviews'><img src={review_icon} alt="" id="review-icon" /></Link>
                         {menu === "reviews" ? <hr /> : null}
                     </li>
                 )}
@@ -93,13 +114,13 @@ const Navbar = () => {
                         <img src={logout_icon} alt="logout" id="logout-icon" />
                       </Link>
                     : <Link to='/login'><img src={people_icon} alt="login" id="login-icon" /></Link>
-                }  
+                }
                 <Link to='/cart'><img src={cart_icon} alt="cart" id="cart-icon" /></Link>
             </div>
             {showResults && searchResults.length > 0 && (
                 <div className="search-results">
                     {searchResults.map(result => (
-                        <div className="search-results-item" onClick={() => handleResultClick(result.id)}key={result.id}>
+                        <div className="search-results-item" onClick={() => handleResultClick(result.id)} key={result.id}>
                             <h3>{result.name}</h3>
                             <p>{result.category} - {result.sub_category}</p>
                             <img src={result.image} alt="" />

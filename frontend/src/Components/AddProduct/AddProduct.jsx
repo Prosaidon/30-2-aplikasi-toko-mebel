@@ -29,7 +29,7 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append('produk', image);
 
-    await fetch('https://api-msib-6-toko-mebel-02.educalab.id/upload', {
+    await fetch('http://localhost:400/upload', {
       method:'POST',
       headers:{
           Accept: 'application/json',
@@ -45,7 +45,7 @@ const AddProduct = () => {
     {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch('https://api-msib-6-toko-mebel-02.educalab.id/addproduct',{
+      await fetch('http://localhost:4000/addproduct',{
         method:'POST',
         headers:{
           Accept:'application/json',

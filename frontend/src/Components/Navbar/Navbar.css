@@ -10,7 +10,16 @@
     z-index: 100;
     top: 0;
     left: 0;
+    transition: transform 0.3s ease;
+    position: fixed;
 }
+.navbar.hidden {
+    transform: translateY(-100%); /* Navbar hilang ke atas */
+  }
+  
+  .navbar.visible {
+    transform: translateY(0); /* Navbar muncul kembali */
+  }
 
 .nav-logo {
     display: flex;

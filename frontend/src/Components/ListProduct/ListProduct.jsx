@@ -8,7 +8,7 @@ const ListProduct = () => {
     
     const token = localStorage.getItem('auth-token')
     const fetchInfo = async ()=>{
-      await fetch ('https://api-msib-6-toko-mebel-02.educalab.id/allproducts')
+      await fetch ('http://localhost:4000/allproducts')
       .then((res)=>res.json())
       .then((data)=>{setAllProducts(data)});
     }
@@ -20,7 +20,7 @@ const ListProduct = () => {
     const remove_product = async(id)=>{
       const userConfirmed = window.confirm('Yakin ingin menghapus Produk?');
       if(userConfirmed){
-        await fetch('https://api-msib-6-toko-mebel-02.educalab.id/removeproduct', {
+        await fetch('http://localhost:4000/removeproduct', {
           method:'DELETE',
           headers:{
             Accept: 'application/json',
