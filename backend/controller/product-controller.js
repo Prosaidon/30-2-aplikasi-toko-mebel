@@ -52,7 +52,6 @@ const removeFromCart = async (req, res) => {
 };
 
 const getCart = async (req,res)=>{
-    console.log("GetCart");
     let userData = await Users.findOne({_id:req.user.id});
     res.json(userData.cartData);
 }
@@ -61,8 +60,14 @@ const clearCart = async(req,res)=>{
     try{
         let userData = await Users.findOne({_id:req.user.id});
         if(userData && userData.cartData ) {
-            userData.cartData = {};  
-            await userData.save(); 
+            
+            for (var key in userData.cartData) {
+                console.log(key + ': ' + userData.cartData[key])
+                userData.cartData[key] = 0;
+                }
+                
+            userData.markModified('cartData');  // Marks the cartData field as modified
+            await userData.save();
             res.send({ success: true, message: "Cart cleared" });
         } else {
             res.status(400).send({ errors: "No cart data to clear" });

@@ -26,7 +26,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {token && isAdmin === 'true' ? <NavAdmin/>: <Navbar /> }
+      <NavAdmin/>
+      <Navbar /> 
         
         <Routes>
           <Route path="/" element={<Shop />} />
@@ -40,7 +41,7 @@ function App() {
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/Login" element={<LoginSignup />} />
-          <Route path="/reviews" element={<ReviewList />} />
+          <Route path="/api/orders" element={<ReviewList />} />
           <Route path="/reviews/:productId" element={<ReviewForm />} />
           <Route path="/reviews/edit/:reviewId" element={<ReviewForm />} />
           <Route path="/reviews/:productId/:reviewId" element={isAuthenticated ? <ReviewForm /> : <Navigate to="/login" />} />

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import './Navbar.css'
 import logo from '../Assets/logo-text.png'
 import cart_icon from '../Assets/cart_icon.png'
 import search_icon from '../Assets/search_icon.png'
-import review_icon from '../Assets/review-icon.png'
+// import review_icon from '../Assets/review-icon.png'
 import people_icon from '../Assets/people_icon.png'
-import logout_icon from '../Assets/logout.png'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import Anon from '../Assets/people_icon.png'
 
 const Navbar = () => {
 
@@ -17,7 +17,10 @@ const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true); // State untuk visibilitas navbar
     const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
     const navigate = useNavigate();
-    const menuRef = userRef();
+    const location = useLocation();
+    const menuRef = useRef();
+    const userImage = localStorage.getItem('profile-image');
+    const imageSrc = userImage ? userImage : Anon;
 
     const searchHandler = async () => {
         try {
@@ -28,6 +31,7 @@ const Navbar = () => {
             console.error("Error fetching search results:", error);
         }
     }
+    
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -41,7 +45,7 @@ const Navbar = () => {
                 setShowResults(false);
             }
         };
-
+        
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -70,6 +74,9 @@ const Navbar = () => {
     };
 
     const [menu, setMenu] = useState("shop");
+    if(location.pathname === '/admin'){
+        return null;
+    }
     return (
         <div className={`navbar ${showNavbar ? 'visible' : 'hidden'}`}> {/* Menambahkan class untuk mengubah visibilitas navbar */}
             <div className="nav-logo">
@@ -106,11 +113,9 @@ const Navbar = () => {
                     <Link to=''><img onClick={searchHandler} src={search_icon} alt="search" id="search_icon" /></Link>
                 </div>
                 {localStorage.getItem('auth-token') && ( // Menampilkan hanya jika ada token
-                    <li className="review-dash" onClick={() => { setMenu("reviews") }}>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/reviews'><img src={review_icon} alt="" id="review-icon" /></Link>
-                        {menu === "reviews" ? <hr /> : null}
-                        
-                    </li>
+                    <Link to='/dashboard'><img className="pfp" src={imageSrc} alt="" />
+                    </Link>
+                    
                 )}
                 {localStorage.getItem('auth-token') && (
                     <Link to='/dashboard' className="dash">
@@ -119,10 +124,7 @@ const Navbar = () => {
                     
                 )}
                 {localStorage.getItem('auth-token')
-                    ? <Link  onClick={() => { localStorage.removeItem('auth-token');localStorage.removeItem('user-id');localStorage.removeItem('user-name'); window.location.replace("/"); localStorage.removeItem('isAdmin') }}>
-                        <img src={logout_icon} alt="logout" id="logout-icon" />
-                        
-                      </Link>
+                    ? <Link style={{display: 'none'}}/>
                     : <Link to='/login'><img src={people_icon} alt="login" id="login-icon" /></Link>
                 }
                 <Link to='/cart'><img src={cart_icon} alt="cart" id="cart-icon" /></Link>

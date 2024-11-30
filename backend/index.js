@@ -16,6 +16,7 @@ const WebhookRouter = require('./router/Whook.js');
 const reviewRouter = require ('./router/ReviewRoutes.js')
 const reviewController = require('./controller/ReviewController');
 const orderRouter = require('./router/OrderRoutes');
+const userRouter = require('./router/dashboard.js')
 
 app.use(logger('dev'));
 app.use('/', WebhookRouter);
@@ -36,6 +37,7 @@ app.use('/images', express.static('upload/images'))
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/reviews', reviewRouter);
+app.use('/profile', userRouter)
 app.use('/api', orderRouter); 
 app.use('/', productRouter);
 app.use('/adminLogin', adminLoginRouter);

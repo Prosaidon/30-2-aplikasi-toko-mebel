@@ -15,8 +15,9 @@ const CheckOutButton = ({cartItems}) => {
             userEmail
         }).then((res)=>{
             if(res.data.url){
-                window.location.href = res.data.url
                 clearCart()
+                window.location.href = res.data.url
+                
             }
         }).catch((err)=>{
             console.log(err.message);

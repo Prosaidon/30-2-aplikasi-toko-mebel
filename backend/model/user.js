@@ -12,6 +12,18 @@ const Users = mongoose.model('Users',{
         type : String,
 
     },
+    address : {
+        type : String,
+
+    },
+    gender : {
+        type : String,
+
+    },
+    image : {
+        type : String,
+
+    },
     cartData : {
         type : Object,
 

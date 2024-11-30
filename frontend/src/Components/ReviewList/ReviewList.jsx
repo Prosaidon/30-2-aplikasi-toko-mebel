@@ -10,7 +10,7 @@ const ReviewList = () => {
   useEffect(() => {
     console.log("Fetched productId from URL:", productId); // Log productId
     fetchOrders();
-  }, []);
+  }, [productId]);
 
   useEffect(() => {
     if (orderList.length > 0 && productId) {
@@ -21,7 +21,7 @@ const ReviewList = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem('auth-token');
-      const response = await fetch('://localhost:4000/api/orders', {
+      const response = await fetch('http://localhost:4000/api/orders', {
         method: 'GET',
         headers: {
           'auth-token': token,
@@ -106,42 +106,46 @@ const ReviewList = () => {
 
   return (
     <div className="reviews-list">
-      {orderList.map(order => (
-        <div key={order._id} className="order-card">
-          <h2>Order ID: {order._id}</h2>
-          {order.products.map(product => {
-            const productReviews = reviewList.filter(review => review.productId === productId); // Gunakan == untuk perbandingan tipe yang berbeda
-            console.log(`Product ID ${productId} has reviews:`, productReviews); // Log product reviews
-            return (
-              <div key={product.id} className="product-card">
-                <img src={product.image} alt={product.name} className="product-image" />
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p>Price: Rp {product.price}</p>
-                  <div className="review-info">
-                    {productReviews.length > 0 ? (
-                      productReviews.map(review => (
-                        <div key={review._id} className="review">
-                          <p>Rating: {review.rating}</p>
-                          <p>Comment: {review.comment}</p>
-                          <div className="review-actions">
-                            <button onClick={() => handleEditReview(review._id, review.rating, review.comment)}>Edit Review</button>
-                            <button onClick={() => handleDeleteReview(review._id)}>Delete Review</button>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <Link to={`/reviews/${product.id}`}>
-                        <button>Add Review</button>
-                      </Link>
-                    )}
+       {orderList.length === 0 ? (
+          <div className='notfound'><h2>You haven't purchased anything</h2></div> // Display this message if no orders
+        ) : (
+          orderList.map(order => (
+            <div key={order._id} className="order-card">
+              <h2>Order ID: {order._id}</h2>
+              {order.products.map(product => {
+                const productReviews = reviewList.filter(review => review.productId === product.id); // Correct product ID matching
+                console.log(`Product ID ${product.id} has reviews:`, productReviews);
+                return (
+                  <div key={product.id} className="product-card">
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <div className="product-info">
+                      <h3>{product.name}</h3>
+                      <p>Price: Rp {product.price}</p>
+                      <div className="review-info">
+                        {productReviews.length > 0 ? (
+                          productReviews.map(review => (
+                            <div key={review._id} className="review">
+                              <p>Rating: {review.rating}</p>
+                              <p>Comment: {review.comment}</p>
+                              <div className="review-actions">
+                                <button onClick={() => handleEditReview(review._id, review.rating, review.comment)}>Edit Review</button>
+                                <button onClick={() => handleDeleteReview(review._id)}>Delete Review</button>
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <Link to={`/reviews/${product.id}`}>
+                            <button>Add Review</button>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      ))}
+                );
+              })}
+            </div>
+          ))
+        )}
     </div>
   );
 };
