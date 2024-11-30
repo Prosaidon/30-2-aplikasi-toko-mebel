@@ -21,7 +21,7 @@ import NavAdmin from "./Components/NavAdmin/NavAdmin";
 function App() {
   const isAuthenticated = localStorage.getItem('auth-token');
   const token = localStorage.getItem('auth-token')
-  const isAdmin = localStorage.getItem('isAdmin')
+  
 
   return (
     <div className="App">

@@ -13,7 +13,11 @@
 }
 
 .navAdmin-profile{
-    width: 50px;
+    width: 37px;
+    height: 37px;
+    border: 2px solid;
+    border-radius: 500px;
+    padding: 2px 2px 2px 2px;
 }
 
 @media(max-width:800px){

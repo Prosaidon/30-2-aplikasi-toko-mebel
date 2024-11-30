@@ -20,7 +20,7 @@ const Navbar = () => {
     const location = useLocation();
     const menuRef = useRef();
     const userImage = localStorage.getItem('profile-image');
-    const imageSrc = userImage ? userImage : Anon;
+    const isAdmin = localStorage.getItem('isAdmin')
 
     const searchHandler = async () => {
         try {
@@ -113,7 +113,7 @@ const Navbar = () => {
                     <Link to=''><img onClick={searchHandler} src={search_icon} alt="search" id="search_icon" /></Link>
                 </div>
                 {localStorage.getItem('auth-token') && ( // Menampilkan hanya jika ada token
-                    <Link to='/dashboard'><img className="pfp" src={imageSrc} alt="" />
+                    <Link to={isAdmin? '/admin': '/dashboard'}><img className="pfp" src={userImage ? userImage : Anon} alt="" />
                     </Link>
                     
                 )}
