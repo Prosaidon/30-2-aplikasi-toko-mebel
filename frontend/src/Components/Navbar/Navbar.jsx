@@ -17,6 +17,7 @@ const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true); // State untuk visibilitas navbar
     const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
     const navigate = useNavigate();
+    const menuRef = userRef();
 
     const searchHandler = async () => {
         try {
@@ -77,7 +78,8 @@ const Navbar = () => {
             <div className="nav-logo">
                 <Link to='/'><img src={logo} alt="logo" /></Link>
             </div>
-            <ul className="nav-menu">
+            
+            <ul ref={menuRef} className="nav-menu">
                 <li onClick={() => { window.scrollTo(0, 0); setMenu("shop") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Shop</Link>
                     {menu === "shop" ? <hr /> : null}
