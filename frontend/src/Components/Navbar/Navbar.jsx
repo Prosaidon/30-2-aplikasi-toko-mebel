@@ -64,30 +64,33 @@ const Navbar = () => {
     }, [lastScrollY]);
 
     const handleResultClick = (productId) => {
+        window.scrollTo(0, 0); // Scroll ke atas
         navigate(`/product/${productId}`);
     };
 
     const [menu, setMenu] = useState("shop");
-
+    // useEffect(() => {
+    //     window.scrollTo(0, 0); // Scroll ke atas
+    //   }, []);
     return (
         <div className={`navbar ${showNavbar ? 'visible' : 'hidden'}`}> {/* Menambahkan class untuk mengubah visibilitas navbar */}
             <div className="nav-logo">
                 <Link to='/'><img src={logo} alt="logo" /></Link>
             </div>
             <ul className="nav-menu">
-                <li onClick={() => { setMenu("shop") }}>
+                <li onClick={() => { window.scrollTo(0, 0); setMenu("shop") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Shop</Link>
                     {menu === "shop" ? <hr /> : null}
                 </li>
-                <li onClick={() => { setMenu("home") }}>
+                <li onClick={() => { window.scrollTo(0, 0);  setMenu("home") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/home'>Home</Link>
                     {menu === "home" ? <hr /> : null}
                 </li>
-                <li onClick={() => { setMenu("office") }}>
+                <li onClick={() => { window.scrollTo(0, 0); setMenu("office") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/office'>Office</Link>
                     {menu === "office" ? <hr /> : null}
                 </li>
-                <li onClick={() => { setMenu("kitchen") }}>
+                <li onClick={() => { window.scrollTo(0, 0); setMenu("kitchen") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/kitchen'>Kitchen</Link>
                     {menu === "kitchen" ? <hr /> : null}
                 </li>

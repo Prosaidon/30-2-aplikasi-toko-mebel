@@ -16,9 +16,7 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_product] = useState ([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
-    useEffect(() => {
-        window.scrollTo(0, 0); // Scroll ke atas
-      }, []);
+    
     useEffect(()=>{
         fetch('http://localhost:4000/allproducts')
         .then((response)=>{
