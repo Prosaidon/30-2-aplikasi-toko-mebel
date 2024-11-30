@@ -1,17 +1,32 @@
 import React from 'react'
 import './RelatedProducts.css'
-import data_product from '../Assets/all_product'
+// import data_product from '../Assets/all_product'
 import Item from '../Item/Item'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const RelatedProducts = () => {
+  const [relatedProducts,setRelatedProd] = useState([]);
+  const {productId} = useParams();
+  useEffect(() => {
+    fetch(`http://localhost:4000/relatedproduct?productId=${productId}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => setRelatedProd(data))
+      .catch((error) => console.error('Error fetching related products:', error));
+  }, [productId]);
+
+
   return (
-    <div className='relatedproducts'>
+    
+    <div className='relatedproducts' onClick={()=>window.scrollTo(0, 0)}>
         <h1>Related Products</h1>
         <hr />
         <div className="relatedproducts-item">
-        {data_product.map((item, i) => (
+        {relatedProducts.map((item, i) => (
           <Item
-            key={i}
+            key={item.id}
             id={item.id}
             name={item.name}
             image={item.image}

@@ -14,7 +14,7 @@ const DescriptionBox = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`://localhost:4000/reviews/${productId}`);
+        const response = await axios.get(`http://localhost:4000/reviews/${productId}`);
         const reviewsData = response.data;
 
         console.log('Fetched reviews data:', reviewsData);

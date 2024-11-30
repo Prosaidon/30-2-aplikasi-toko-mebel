@@ -15,6 +15,7 @@ import NotFound from "./Pages/NotFound";
 import ReviewList from "./Components/ReviewList/ReviewList"; // Pastikan import ReviewList benar
 import ReviewForm from "./Components/ReviewForm/ReviewForm";
 import Admin from "./Pages/Admin";
+import Dashboard from "./Pages/dashboard"
 import NavAdmin from "./Components/NavAdmin/NavAdmin";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Shop />} />
           <Route path="admin" element={<Admin/>}/>
+          <Route path="/dashboard" element = {<Dashboard/>} />
           <Route path="/home" element={<ShopCategory banner={home_banner} category="living" />} />
           <Route path="/office" element={<ShopCategory banner={office_banner} category="office" />} />
           <Route path="/kitchen" element={<ShopCategory banner={kitchen_banner} category="kitchen" />} />

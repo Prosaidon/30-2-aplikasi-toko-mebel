@@ -12,6 +12,7 @@ const {
     searchProducts, 
     getNewCollections, 
     getPopularInOffice,
+    getRelatedProduct,
     UploadIMG, 
 } = require('../controller/product-controller.js');
 const {checkout} = require('../controller/checkOutController.js')
@@ -30,6 +31,7 @@ router.post('/upload', upload.single('produk'), fetchUser, UploadIMG)
 router.post('/addproduct',fetchUser, addProduct);
 router.delete('/removeproduct', fetchUser, removeProduct);
 router.get('/allproducts', getAllProducts);
+router.get('/relatedproduct', getRelatedProduct);
 router.get('/search', searchProducts);
 router.get('/new-collections', getNewCollections);
 router.get('/popular-in-office', getPopularInOffice);

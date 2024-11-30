@@ -157,6 +157,22 @@ const getNewCollections = async (req, res) => {
     res.send(new_collection);
 };
 
+const getRelatedProduct = async(req, res)=>{
+
+    try {
+        const productId = req.query.productId; // Get productId from query
+        const product = await Product.findOne({id: productId}); // Fetch product details
+        if (!product) {
+          return res.status(404).json({ message: 'Product not found' });
+        }
+        const relatedProducts = await Product.find({category: product.category })
+        res.json(relatedProducts);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+}
+
 // Controller untuk mendapatkan produk popular di office
 const getPopularInOffice = async (req, res) => {
     let product = await Product.find({ category: "office" });
@@ -216,6 +232,7 @@ module.exports = {
     getAllProducts,
     getNewCollections,
     getPopularInOffice,
+    getRelatedProduct,
     searchProducts,
     UploadIMG,
     getProductById,

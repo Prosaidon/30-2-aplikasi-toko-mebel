@@ -65,6 +65,11 @@
     padding-right: 20px;
 }
 
+.User-name{
+    font-size: 20px;
+    display: flex;
+    padding: 2px 2px 2px 8px;
+}
 .nav-search {
     display: flex;
     align-items: center;
@@ -99,11 +104,24 @@
     height: 24px;
     padding-top: 8px;
 }
+.dash{
+
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    margin: auto;
+    padding-right: 8px;
+    justify-content: space-between;
+    gap: 8px
+}
 
 #logout-icon {
     width: auto;
     height: 32px;
     padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 8px;
 }
 
 #cart-icon {

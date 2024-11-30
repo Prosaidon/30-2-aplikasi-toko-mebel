@@ -11,16 +11,19 @@ const login = async(req, res)=>{
         if(passCompare){
             const data = {
                 user : {
-                    id : user.id
+                    id : user.id,
+                    username : user.name
                 }
             }
+            console.log("data user "+ JSON.stringify(data));
+            
             if(isAdmin){
                 
                const token = jwt.sign(data, process.env.SECRET_USER);
                return res.json({succes:true, token, isAdmin:true})
             }
             const token = jwt.sign(data, process.env.SECRET_USER);
-            res.json({succes:true, token, isAdmin:false})
+            res.json({succes:true, token, isAdmin:false, user})
           
         }
         else{

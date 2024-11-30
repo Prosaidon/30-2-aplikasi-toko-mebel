@@ -45,8 +45,11 @@ const Loginsignup = () => {
     }).then((response)=> response.json()).then((data)=>responseData=data)
     console.log("Login: ",responseData);
     if(responseData.succes){
+      console.log(formData);
+      debugger
       let UserData = formData.email
       localStorage.setItem('user-id', UserData)
+      localStorage.setItem('user-name', responseData.user.name)
       localStorage.setItem('auth-token',responseData.token);
       localStorage.setItem('isAdmin', responseData.isAdmin);
       if(responseData.isAdmin){

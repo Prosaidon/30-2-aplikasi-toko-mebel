@@ -69,9 +69,6 @@ const Navbar = () => {
     };
 
     const [menu, setMenu] = useState("shop");
-    // useEffect(() => {
-    //     window.scrollTo(0, 0); // Scroll ke atas
-    //   }, []);
     return (
         <div className={`navbar ${showNavbar ? 'visible' : 'hidden'}`}> {/* Menambahkan class untuk mengubah visibilitas navbar */}
             <div className="nav-logo">
@@ -107,14 +104,22 @@ const Navbar = () => {
                     <Link to=''><img onClick={searchHandler} src={search_icon} alt="search" id="search_icon" /></Link>
                 </div>
                 {localStorage.getItem('auth-token') && ( // Menampilkan hanya jika ada token
-                    <li onClick={() => { setMenu("reviews") }}>
+                    <li className="review-dash" onClick={() => { setMenu("reviews") }}>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to='/reviews'><img src={review_icon} alt="" id="review-icon" /></Link>
                         {menu === "reviews" ? <hr /> : null}
+                        
                     </li>
                 )}
+                {localStorage.getItem('auth-token') && (
+                    <Link to='/dashboard' className="dash">
+                        Hello, {localStorage.getItem('user-name')}
+                    </Link>
+                    
+                )}
                 {localStorage.getItem('auth-token')
-                    ? <Link onClick={() => { localStorage.removeItem('auth-token'); window.location.replace("/"); localStorage.removeItem('isAdmin') }}>
+                    ? <Link  onClick={() => { localStorage.removeItem('auth-token');localStorage.removeItem('user-id');localStorage.removeItem('user-name'); window.location.replace("/"); localStorage.removeItem('isAdmin') }}>
                         <img src={logout_icon} alt="logout" id="logout-icon" />
+                        
                       </Link>
                     : <Link to='/login'><img src={people_icon} alt="login" id="login-icon" /></Link>
                 }
