@@ -8,6 +8,7 @@ import DescriptionBox from '../Components/DescriptionBox/DescriptionBox'
 import RelatedProducts from '../Components/RelatedProducts/RelatedProducts'
 
 const Product = () => {
+  window.scrollTo(0, 0);
   const {all_product}= useContext(ShopContext);
   const {productId} = useParams();
   const product = all_product.find((e)=> e.id === Number(productId));

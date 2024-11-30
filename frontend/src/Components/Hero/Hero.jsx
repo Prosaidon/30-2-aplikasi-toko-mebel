@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import heroImage from '../Assets/hero_image.png'; // Perbaikan nama variabel impor
 
 const Hero = () => {
   return (
@@ -13,6 +14,7 @@ const Hero = () => {
           <p>EVERYONE</p>
         </div>
       </div>
+      <img src={heroImage} alt="" /> {/* Menggunakan variabel yang diimpor */}
     </div>
   );
 };

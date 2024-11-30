@@ -1,23 +1,41 @@
 .hero {
-    margin-top: 70px;
-    height: 100vh;
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Tetap tinggi 100vh, atau bisa diubah sesuai kebutuhan */
+    width: 100%; /* Lebar 120% dari viewport, sehingga elemen meluas keluar */
     display: flex;
     align-items: center;
-    background-image: url('../Assets/hero_image.png');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    justify-content: center; /* Untuk menyejajarkan konten */
+    overflow: hidden; /* Menghindari tampilan keluar dari area */
     position: relative;
+    padding: 100px;
+    
 }
 
+.hero img {
+    top: 20%;
+    width: 100%; /* Gambar mengisi seluruh elemen hero */
+    height: 100%; /* Menjaga proporsi gambar */
+    object-fit: cover; /* Gambar menutupi area tanpa merusak proporsi */
+    object-position: center; /* Gambar tetap terpusat */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 350px; /* Menyesuaikan padding pada perangkat lebih kecil */
+    }
+    .hero img {
+        object-fit: cover; /* Pastikan gambar tetap mengisi penuh */
+        width: 1200px;
+        top: 20%;
+    }
+}
 .hero-tagline {
     position: absolute;
     left: 70px;
-    top: 40%;
+    top: 20%;
     transform: translateY(-50%);
     color: white;
-
 }
 
 .hero-tagline h2 {
