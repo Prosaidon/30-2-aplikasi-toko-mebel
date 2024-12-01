@@ -6,8 +6,14 @@ import cart_icon from '../Assets/cart_icon.png'
 import search_icon from '../Assets/search_icon.png'
 // import review_icon from '../Assets/review-icon.png'
 import people_icon from '../Assets/people_icon.png'
+
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Anon from '../Assets/people_icon.png'
+
+import logout_icon from '../Assets/logout.png'
+import { Link, useNavigate } from "react-router-dom";
+import nav_dropdown from '../Assets/img_dropdown.png'
+
 
 const Navbar = () => {
 
@@ -17,10 +23,29 @@ const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true); // State untuk visibilitas navbar
     const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
     const navigate = useNavigate();
+
     const location = useLocation();
     const menuRef = useRef();
     const userImage = localStorage.getItem('profile-image');
     const imageSrc = userImage ? userImage : Anon;
+
+    // const menuRef = useRef();
+
+    const dropdown_toggle = (e) => {
+        if (menuRef.current) {
+            menuRef.current.classList.toggle('nav-menu-visible');
+        } else {
+            console.error("menuRef tidak ditemukan");
+        }
+        if (e.target) {
+            // Tambahkan/menghapus kelas 'open' pada elemen yang di-klik
+            e.target.classList.toggle('open');
+        } else {
+            console.error("Element target tidak ditemukan");
+        }
+
+    };
+
 
     const searchHandler = async () => {
         try {
@@ -82,7 +107,7 @@ const Navbar = () => {
             <div className="nav-logo">
                 <Link to='/'><img src={logo} alt="logo" /></Link>
             </div>
-            
+            <img className="nav-dropdown" onClick={dropdown_toggle} src={nav_dropdown} alt="" />
             <ul ref={menuRef} className="nav-menu">
                 <li onClick={() => { window.scrollTo(0, 0); setMenu("shop") }}>
                     <Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Shop</Link>
