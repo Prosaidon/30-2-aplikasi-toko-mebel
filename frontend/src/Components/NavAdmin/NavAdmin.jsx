@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const NavAdmin = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const userImage = localStorage.getItem('profile-image');
   const handleLogoClick = () => {
     navigate("/");
     
@@ -17,7 +18,7 @@ const NavAdmin = () => {
   return (
     <div className='navAdmin'>
         <img src={navlogo} onClick={handleLogoClick} alt="" className="navAdmin-logo" />
-        <img src={navProfile} className='navAdmin-profile' alt="" />
+        <img src={userImage? userImage : navProfile} className='navAdmin-profile' alt="" />
     </div>
   )
 }

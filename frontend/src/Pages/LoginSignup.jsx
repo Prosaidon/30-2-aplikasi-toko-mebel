@@ -46,7 +46,6 @@ const Loginsignup = () => {
     console.log("Login: ",responseData);
     if(responseData.succes){
       console.log(formData);
-      debugger
       let UserData = formData.email
       localStorage.setItem('user-id', UserData)
       localStorage.setItem('user-name', responseData.user.name)
