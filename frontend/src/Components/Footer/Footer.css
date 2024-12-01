@@ -80,3 +80,85 @@
     background: #c7c7c7;
     margin: 10px 0;
 }
+
+
+/* Responsif untuk tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .footer-logo img {
+        width: 150px; /* Ukuran logo lebih kecil untuk tablet */
+    }
+
+    .footer-links {
+        gap: 20px; /* Lebar gap antar link dikurangi */
+        font-size: 14px; /* Ukuran font lebih kecil */
+    }
+
+    .footer-social-icon {
+        gap: 12px; /* Lebar gap antar ikon dikurangi */
+    }
+
+    .footer-icons-container img {
+        width: 20px; /* Ukuran ikon lebih kecil */
+        height: 20px;
+    }
+
+    .footer-copyright {
+        font-size: 12px; /* Ukuran font untuk hak cipta lebih kecil */
+    }
+}
+
+/* Responsif untuk ponsel (max-width: 768px) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 0px 400px; /* Tambahkan padding pada footer untuk ponsel */
+    }
+
+    .footer-logo img {
+        width: 120px; /* Ukuran logo lebih kecil untuk ponsel */
+    }
+
+    .footer-links {
+        gap: 15px; /* Lebar gap antar link dikurangi */
+        font-size: 14px; /* Ukuran font lebih kecil */
+        flex-wrap: wrap; /* Membungkus link ke baris baru jika tidak muat */
+        justify-content: center; /* Untuk menjaga semua link tetap di tengah */
+    }
+
+    .footer-social-icon {
+        /*gap: 10px; /* Lebar gap antar ikon dikurangi */
+        margin-bottom: 10px;
+    }
+
+    .footer-icons-container img {
+        width: 20px; /* Ukuran ikon lebih kecil */
+        height: 20px;
+    }
+
+    .footer-copyright {
+        font-size: 12px; /* Ukuran font untuk hak cipta lebih kecil */
+    }
+}
+
+/* Responsif untuk layar kecil (max-width: 480px) */
+@media (max-width: 480px) {
+    .footer-logo img {
+        width: 100px; /* Ukuran logo lebih kecil untuk layar kecil */
+    }
+
+    .footer-links {
+        font-size: 12px; /* Ukuran font lebih kecil */
+    }
+
+    .footer-social-icon {
+        gap: 8px; /* Lebar gap antar ikon lebih kecil */
+    }
+
+    .footer-icons-container img {
+        width: 18px; /* Ukuran ikon lebih kecil */
+        height: 18px;
+    }
+
+    .footer-copyright {
+        font-size: 10px; /* Ukuran font lebih kecil */
+    }
+}

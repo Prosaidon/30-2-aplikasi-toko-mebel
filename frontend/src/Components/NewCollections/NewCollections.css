@@ -4,11 +4,14 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 100px;
+    text-align: center;
+    padding: 0 580px;
 }
 .new-collections h1{
     color: #171717;
     font-size: 50px;
     font-weight: 600;
+    margin: 0;
 }
 .new-collections hr{
     width: 200px;
@@ -21,4 +24,52 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 50px;
     gap: 30px;
+}
+
+
+/* Media Query untuk Tablet */
+@media (max-width: 1024px) {
+    .collections {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk layar medium */
+    }
+    .new-collections{
+        padding: 0px 680px;
+    }
+    .new-collections h1 {
+        font-size: 40px; /* Kurangi ukuran font */
+
+    }
+}
+
+/* Media Query untuk Ponsel */
+@media (max-width: 768px) {
+    .collections {
+        max-width: 1200px; /* Kurangi ukuran maksimal */
+        padding: 20px; /* Kurangi padding */
+    }
+
+    .new-collections{
+        padding: 0px 580px;
+    }
+    .new-collections h1 {
+        font-size: 35px; /* Lebih kecil untuk ponsel */
+    }
+
+    .collections {
+        gap: 20px; /* Kurangi jarak antar elemen */
+    }
+}
+
+/* Media Query untuk Layar Sangat Kecil */
+@media (max-width: 480px) {
+    .collections {
+        max-width:1200px; /* Kurangi ukuran maksimal */
+        padding: 20px; /* Kurangi padding */
+        gap: 50px;
+    }
+
+    .new-collections h1 {
+        font-size: 30px;
+        
+    }
 }

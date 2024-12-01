@@ -37,3 +37,53 @@
     height: 250px;
     object-fit: cover;
 }
+
+@media (max-width: 1024px) {
+    .item {
+        max-width: 520px; /* Kurangi ukuran maksimal */
+        padding: 10px; /* Kurangi padding */
+    }
+
+    .item img {
+        max-width: 300px; /* Gambar mengikuti ukuran elemen */
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 14px; /* Ukuran font lebih kecil di layar kecil */
+    }
+}
+
+/* Media Query untuk Layar Kecil */
+@media (max-width: 768px) {
+    .item {
+        max-width: 1200px; /* Kurangi ukuran maksimal */
+        padding: 20px; /* Kurangi padding */
+    }
+
+    .item img {
+        max-width: 300px; /* Gambar mengikuti ukuran elemen */
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 14px; /* Ukuran font lebih kecil di layar kecil */
+    }
+}
+
+/* Media Query untuk Layar Sangat Kecil */
+@media (max-width: 480px) {
+    .item {
+        max-width: 500px; /* Ukuran lebih kecil untuk perangkat sangat kecil */
+        padding: 5px;
+    }
+
+    .item img {
+        max-width: 1500px;
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 12px;
+    }
+}

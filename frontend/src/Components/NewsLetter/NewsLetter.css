@@ -52,3 +52,71 @@
     cursor: pointer;
     z-index: 1;
 }
+
+
+/* Responsif untuk tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .newsletter {
+        height: auto; /* Sesuaikan tinggi kontainer untuk perangkat lebih kecil */
+    }
+
+    .newsletter h1 {
+        font-size: 45px; /* Ukuran font lebih kecil untuk tablet */
+    }
+
+    .newsletter div {
+        width: 600px; /* Sesuaikan lebar input dan tombol untuk tablet */
+    }
+
+    .newsletter input {
+        width: 400px; /* Sesuaikan ukuran input */
+    }
+
+    .newsletter div button {
+        width: 150px; /* Ukuran tombol lebih kecil */
+    }
+}
+
+/* Responsif untuk ponsel (max-width: 768px) */
+@media (max-width: 768px) {
+    .newsletter {
+        height: auto;
+        padding: 20px 400px; /* Tambahkan padding agar terlihat lebih baik */
+    }
+
+    .newsletter h1 {
+        font-size: 35px; /* Ukuran font lebih kecil untuk ponsel */
+        text-align: center; /* Pusatkan teks */
+    }
+
+    .newsletter div {
+        width: 100%; /* Lebar div menjadi 100% untuk ponsel */
+        flex-direction: column; /* Membuat elemen berada di atas satu sama lain */
+        align-items: center;
+    }
+
+    .newsletter input {
+        width: 80%; /* Lebar input menyesuaikan */
+        margin-left: 0; /* Hilangkan margin kiri pada input */
+        margin-bottom: 10px; /* Tambahkan margin bawah pada input */
+    }
+
+    .newsletter div button {
+        width: 80%; /* Lebar tombol menyesuaikan dengan input */
+    }
+}
+
+/* Responsif untuk layar kecil (max-width: 480px) */
+@media (max-width: 480px) {
+    .newsletter h1 {
+        font-size: 30px; /* Ukuran font lebih kecil untuk layar kecil */
+    }
+
+    .newsletter input {
+        width: 80%; /* Lebar input menyesuaikan dengan layar kecil */
+    }
+
+    .newsletter div button {
+        width: 80%; /* Lebar tombol lebih kecil untuk layar kecil */
+    }
+}
