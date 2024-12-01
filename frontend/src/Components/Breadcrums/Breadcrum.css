@@ -13,3 +13,19 @@
     width: 10px;
     height: 16px;
 }
+
+
+@media (max-width: 480px) {
+    .breadcrum {
+        margin: 100px; /* Margin minimal untuk perangkat kecil */
+        font-size: 15px; /* Ukuran font minimal */
+        gap: 2px; /* Jarak antar elemen sangat kecil */
+        padding: 30px;
+        width: 80vh;
+    }
+
+    .breadcrum img {
+        width: 5px; /* Lebar ikon minimal */
+        height: 10px; /* Tinggi ikon minimal */
+    }
+}

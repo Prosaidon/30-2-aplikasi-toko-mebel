@@ -141,6 +141,11 @@
 
 /* Responsif untuk layar kecil (max-width: 480px) */
 @media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Memastikan tinggi halaman penuh */
+    }
     .footer-logo img {
         width: 100px; /* Ukuran logo lebih kecil untuk layar kecil */
     }
@@ -160,5 +165,11 @@
 
     .footer-copyright {
         font-size: 10px; /* Ukuran font lebih kecil */
+        width: 150vh;
+    }
+    
+    .footer{
+        width: 150vw;
+        
     }
 }

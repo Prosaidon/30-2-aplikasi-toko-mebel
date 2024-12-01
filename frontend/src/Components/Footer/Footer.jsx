@@ -12,9 +12,9 @@ const Footer = () => {
             <img src={footer_logo} alt="Mebelify Logo" />
         </div>
         <ul className='footer-links'>
-            <li>Company</li>
+            {/* <li>Company</li>
             <li>Products</li>
-            <li>Offices</li>
+            <li>Offices</li> */}
             <li>About</li>
             <li>Contact</li>
         </ul>
