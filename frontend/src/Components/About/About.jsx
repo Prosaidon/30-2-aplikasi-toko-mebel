@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";  // Import the CSS file
-
+import FeryAle from '../Assets/Tengah_Hutan.png'
 const About = () => {
   return (
     <div className="about-container">
@@ -16,7 +16,98 @@ const About = () => {
         field, empowering individuals to achieve their goals through our
         platform.
       </p>
-      <h2>Our Team</h2>
+      <div class="team">
+        <h1>Our<span>Team</span></h1>
+
+        <div class="team_box">
+            <div class="profile">
+                <img src={FeryAle} alt="Fery Ale Lesmana"/>
+
+                <div class="info">
+                    <h2 class="name">Fery Ale Lesmana</h2>
+                    <p class="bio">Backend Developer</p>
+
+                    <div class="team_icon">
+                        <a href="https://web.facebook.com/">
+                          <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://web.twitter.com/">
+                          <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/">
+                          <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="image/chef2.png"/>
+
+                <div class="info">
+                    <h2 class="name">Rizky Hidayatullah</h2>
+                    <p class="bio">Lulusan German</p>
+
+                    <div class="team_icon">
+                        <a href="https://web.facebook.com/">
+                	        <i class="fa-brands fa-facebook-f"></i>
+			                 </a>
+			                  <a href="https://web.twitter.com/">
+                	        <i class="fa-brands fa-twitter"></i>
+			                  </a>
+			                  <a href="https://www.instagram.com/">
+                	        <i class="fa-brands fa-instagram"></i>
+			                  </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="image/chef3.jpg"/>
+
+                <div class="info">
+                    <h2 class="name">Ramlan Kusuma</h2>
+                    <p class="bio">Lulusan Indonesia</p>
+                    <div class="team_icon">
+                        <a href="https://web.facebook.com/">
+                          <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://web.twitter.com/">
+                          <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/">
+                          <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="image/chef4.jpg"/>
+                <div class="info">
+                    <h2 class="name">Nabila</h2>
+                    <p class="bio">Universitas pamulang</p>
+                    <div class="team_icon">
+                        <a href="https://web.facebook.com/">
+                          <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://web.twitter.com/">
+                          <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/">
+                          <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
       <p>
         Our team consists of passionate individuals committed to delivering
         high-quality solutions. Together, we work tirelessly to improve and
