@@ -29,3 +29,24 @@
     padding: 48px;
     padding-bottom: 70px;
 }
+
+@media (max-width: 480px) {
+    .descriptionbox {
+        margin: 50px 30px; /* Margin lebih kecil untuk perangkat kecil */
+    }
+
+    .descriptionbox-navigator {
+        gap: 5px; /* Kurangi jarak antar elemen */
+    }
+
+    .descriptionbox-nav-box {
+        width: 100px; /* Lebar lebih kecil */
+        height: 40px; /* Tinggi lebih kecil */
+        font-size: 10px; /* Font minimal */
+    }
+
+    .descriptionbox-description {
+        padding: 15px; /* Padding minimal */
+        gap: 10px; /* Jarak antar elemen minimal */
+    }
+}

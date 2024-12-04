@@ -3,13 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 20px;
+  /* padding: 20px 550px; */
 }
 
 .popular h1 {
   color: #171717;
   font-size: 50px;
   font-weight: 600;
+  text-align: center;
 }
 
 .popular hr {
@@ -28,10 +29,67 @@
   gap: 30px;
   width: 250px;
   height: auto;
+  width: 100%; /* Pastikan grid menggunakan lebar penuh */
 }
 
 .popular-item img {
-  width: 250px;
+  width: 100%; /* Otomatis menyesuaikan dengan grid */
   height: 250px;
   object-fit: cover;
+  border-radius: 10px; /* Opsional untuk estetika */
+}
+
+
+/* Media Queries untuk Layar Kecil */
+@media (max-width: 1024px) {
+  .popular{
+    padding: 0px 680px;
+  }
+  .popular h1 {
+    font-size: 30px; /* Kurangi ukuran font untuk layar kecil */
+  }
+
+  .popular hr {
+    width: 150px; /* Persempit garis pemisah */
+  }
+
+  .popular-item {
+    gap: 10px; /* Kurangi jarak antar item */
+  }
+
+  
+}
+
+@media (max-width: 768px) {
+  .popular{
+    padding: 0px 580px;
+  }
+  .popular h1 {
+    font-size: 30px; /* Kurangi ukuran font untuk layar kecil */
+  }
+
+  .popular hr {
+    width: 150px; /* Persempit garis pemisah */
+  }
+
+  .popular-item {
+    gap: 10px; /* Kurangi jarak antar item */
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  .popular h1 {
+    font-size: 30px;
+  }
+
+  .popular hr {
+    width: 100px;
+  }
+
+  .popular-item img {
+    width: 100%; /* Gambar tetap fleksibel */
+    height: auto;
+  }
 }

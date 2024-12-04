@@ -30,3 +30,24 @@
     padding: 10px; /* Optional: Add some padding if needed */
     box-sizing: border-box;
 }
+
+@media (max-width: 480px) {
+    .relatedproducts h1 {
+        font-size: 34px; /* Font kecil untuk layar ponsel */
+    }
+
+    .relatedproducts-item {
+        width: 150vh; /* Lebar penuh layar HP */
+        height: 50vh;
+        margin: 20px; /* Hilangkan margin */
+        padding: 80px; /* Hilangkan padding */
+    }
+
+    .relatedproducts-item div {
+        width: 100%; /* Ukuran item sangat kecil untuk ponsel */
+        
+    }
+    .relatedproducts{
+        padding: 0 500px;
+    }
+}

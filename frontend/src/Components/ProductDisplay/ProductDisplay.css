@@ -1,6 +1,6 @@
 .productdisplay{
     display: flex;
-    margin: 0px 170px;
+    margin: 0px 130px;
 }
 
 .productdisplay-left{
@@ -105,4 +105,24 @@
 
 .productdisplay-right-category span{
     font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    
+    .productdisplay-right-sizes div {
+        padding: 10px 20px; /* Kurangi padding ukuran */
+    }
+
+    .productdisplay-right button {
+        padding: 15px 20px; /* Kurangi padding tombol */
+        font-size: 14px;
+    }
+
+    .productdisplay-right h1 {
+        font-size: 20px;
+    }
+
+    .productdisplay {
+        gap: 20px; /* Tambahkan sedikit jarak antar elemen */
+    }
 }

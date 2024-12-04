@@ -1,0 +1,52 @@
+/* Styling untuk seluruh halaman kontak */
+.contact-list {
+    padding: 50px;
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .contact-list h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Styling untuk setiap kartu kontak */
+  .contact-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .contact-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #00796b;
+  }
+  
+  .contact-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Hover efek */
+  .contact-card:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.02);
+  }
+  
+  /* Styling untuk ikon telepon dan email */
+  .contact-card p::before {
+    content: attr(data-icon);
+    margin-right: 8px;
+    font-size: 16px;
+    color: #00796b;
+  }
+  

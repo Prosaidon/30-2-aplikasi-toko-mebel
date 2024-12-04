@@ -17,10 +17,13 @@ import ReviewForm from "./Components/ReviewForm/ReviewForm";
 import Admin from "./Pages/Admin";
 import Dashboard from "./Pages/dashboard"
 import NavAdmin from "./Components/NavAdmin/NavAdmin";
+import Contact from "./Pages/Contact";
+import About from "./Components/About/About";
 
 function App() {
   const isAuthenticated = localStorage.getItem('auth-token');
-  const token = localStorage.getItem('auth-token')
+ 
+  
   
 
   return (
@@ -41,6 +44,8 @@ function App() {
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/Login" element={<LoginSignup />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/About" element={<About/>} />
           <Route path="/api/orders" element={<ReviewList />} />
           <Route path="/reviews/:productId" element={<ReviewForm />} />
           <Route path="/reviews/edit/:reviewId" element={<ReviewForm />} />
