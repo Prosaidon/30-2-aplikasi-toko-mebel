@@ -4,6 +4,7 @@ import Sidebar from '../Components/Sidebar/Sidebar'
 import AddProduct from '../Components/AddProduct/AddProduct'
 import ListProduct from '../Components/ListProduct/ListProduct'
 import { useState } from 'react'
+import Transaction from '../Components/Transaction/Transaction'
 
 
 const Admin = () => {
@@ -15,6 +16,8 @@ const Admin = () => {
           return <AddProduct />;
         case 'ListProduct':
           return <ListProduct />;
+        case 'TransactionList':
+          return <Transaction />;
         default:
           return <AddProduct />;
       }

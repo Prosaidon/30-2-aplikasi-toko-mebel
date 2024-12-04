@@ -2,7 +2,7 @@
 import './NavAdmin.css'
 import navlogo from '../Assets/logo-admin-mebelify.png'
 import navProfile from '../Assets/navbar-profile.png'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const NavAdmin = () => {
   const location = useLocation();
@@ -18,7 +18,10 @@ const NavAdmin = () => {
   return (
     <div className='navAdmin'>
         <img src={navlogo} onClick={handleLogoClick} alt="" className="navAdmin-logo" />
-        <img src={userImage? userImage : navProfile} className='navAdmin-profile' alt="" />
+        <Link to='/dashboard' className='admin-profile'>
+          <img src={userImage? userImage : navProfile} className='navAdmin-profile' alt="" />
+        </Link>
+        
     </div>
   )
 }

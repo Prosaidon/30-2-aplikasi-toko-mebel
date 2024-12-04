@@ -1,4 +1,4 @@
-.list-product{
+.transaction-list{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -13,30 +13,50 @@
     scroll-behavior: smooth;
 }
 
-.listproduct-format-main{
+.transaction-list-format-main{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 2fr 2fr 3fr 1fr 3fr 1fr;
+    gap: 20px;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 0px 20px;
     color: #454545;
     font-size: 15px;
     font-weight: 600;
+    
 }
 
-.listproduct-format{
+.transaction-list-format-main li{
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #454545 ;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.transaction-list-format-main p{
+    width: fit-content;
+}
+.Payment{
+   
+}
+.transaction-list-format{
     align-items: center;
     font-weight: 500;
 }
 
-.listproduct-icon{
+.transaction-list-icon{
     height: 100px;
 }
-
-.listproduct-product-icon{
-    width: 100px;
+.transaction-list-allTransactions{
+    align-items: center;
 }
-.listproduct-remove-icon{
+.transaction-list-product-icon{
+    padding: 5px;
+    width: 50px;
+}
+.transaction-list-remove-icon{
     height: 50px;
     width: 50px;
     cursor: pointer;
@@ -45,19 +65,19 @@
 
 
 @media(max-width:800px){
-    .list-product{
+    .transaction-list{
         box-sizing: border-box;
         width: 100%;
         height: 100%;
         padding: 10px 30px;
         margin: 20px auto;
     }
-    .listproduct-format-main{
+    .transaction-list-format-main{
         padding: 15px 0px;
         color: #454545;
         font-size: 12px;
     }
-    .listproduct-remove-icon{
+    .transaction-list-remove-icon{
         height: 50px;
     }
 }

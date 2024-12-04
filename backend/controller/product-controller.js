@@ -1,6 +1,7 @@
 const Product = require('../model/Product.js'); 
 const Users = require('../model/user.js');
-const cloudinary = require('../library/cloudynaryConfig.js')
+const cloudinary = require('../library/cloudynaryConfig.js');
+const Order = require('../model/order.js');
 
 
 // Controller untuk menambahkan Item di cart
@@ -226,6 +227,49 @@ const getProductById = async (req, res) => {
     }
 };
 
+const getTransactions = async (req, res)=>{
+    let userData = await Users.findOne({ _id: req.user.id });
+    if(!userData.isAdmin){
+        res.status(401).send({error: "User is not an Admin"})
+        return 0;
+    }
+    else{
+        try {
+            const transactions = await Order.find({});
+            if (!transactions) {
+                return res.status(404).json({ message: 'Product not found' });
+            }
+            res.json({transactions});
+        } catch (error) {
+            console.error('Error fetching product:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+   
+}
+
+const deleteTransaction = async (req, res)=>{
+    let userData = await Users.findOne({ _id: req.user.id });
+    if(!userData.isAdmin){
+        res.status(401).send({error: "User is not an Admin"})
+        return 0;
+    }
+    else{
+        try {
+            console.log("Id transaksi: "+req.body.id);
+            
+            const transactions = await Order.findOneAndDelete({_id: req.body.id});
+            if (!transactions) {
+                return res.status(404).json({ message: 'Product not found' });
+            }
+            res.json({transactions});
+        } catch (error) {
+            console.error('Error fetching product:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+       
+    }
+}
 
 module.exports = {
     addToCart,
@@ -241,4 +285,6 @@ module.exports = {
     searchProducts,
     UploadIMG,
     getProductById,
+    getTransactions,
+    deleteTransaction,
 }

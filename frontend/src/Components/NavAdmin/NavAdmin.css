@@ -19,6 +19,9 @@
     border-radius: 500px;
     padding: 2px 2px 2px 2px;
 }
+.admin-profile{
+    text-decoration: none;
+}
 
 @media(max-width:800px){
     .navAdmin{

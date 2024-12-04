@@ -13,7 +13,9 @@ const {
     getNewCollections, 
     getPopularInOffice,
     getRelatedProduct,
-    UploadIMG, 
+    UploadIMG,
+    getTransactions,
+    deleteTransaction, 
 } = require('../controller/product-controller.js');
 const {checkout} = require('../controller/checkOutController.js')
 const fetchUser = require('../middleware/fetchUser.js')
@@ -35,5 +37,7 @@ router.get('/relatedproduct', getRelatedProduct);
 router.get('/search', searchProducts);
 router.get('/new-collections', getNewCollections);
 router.get('/popular-in-office', getPopularInOffice);
+router.get('/all-transactions', fetchUser, getTransactions)
+router.delete('/remove-transactions', fetchUser, deleteTransaction)
 
 module.exports = router;

@@ -34,7 +34,7 @@
 }
 
 .sidebar-item img{
-    
+    max-height: 50px;
     width: 50px;
 }
 #logout-icon {
