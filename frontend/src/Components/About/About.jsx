@@ -3,6 +3,7 @@ import "./About.css";  // Import the CSS file
 import FeryAle from '../Assets/Tengah_Hutan.png'
 import Rizky from '../Assets/Dayat.png'
 import Ramlan from '../Assets/Ramlan.png'
+import Nabilla from '../Assets/Nabilla.jpg'
  
 const About = () => {
   return (
@@ -75,7 +76,7 @@ const About = () => {
 
                 <div class="info">
                     <h2 class="name">Ramlan Kusuma</h2>
-                    <p class="bio">Lulusan Indonesia</p>
+                    <p class="bio">IPB</p>
                     <div class="team_icon">
                         <a href="https://web.facebook.com/">
                           <i class="fa-brands fa-facebook-f"></i>
@@ -92,10 +93,10 @@ const About = () => {
             </div>
 
             <div class="profile">
-                <img src="image/chef4.jpg"/>
+            <img src={Nabilla} alt="Nabilla Eka Putri"/>
                 <div class="info">
                     <h2 class="name">Nabila</h2>
-                    <p class="bio">Universitas pamulang</p>
+                    <p class="bio">Pamulang University</p>
                     <div class="team_icon">
                         <a href="https://web.facebook.com/">
                           <i class="fa-brands fa-facebook-f"></i>
