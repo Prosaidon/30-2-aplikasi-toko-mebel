@@ -48,13 +48,12 @@ const About = () => {
 
             
             <div class="profile">
-            <img src={Rizky} alt="Rizky Hidayatullah"/>
+                <img src={Rizky} alt="Rizky Hidayatullah"/>
 
                 <div class="info">
                     <h2 class="name">Rizky Hidayatullah</h2>
-                    <p class="bio">Lulusan German</p>
-                    
-                  <div class="info">
+                    <p class="bio">Lulusan Teikyo University</p>
+
                     <div class="team_icon">
                         <a href="https://web.facebook.com/">
                           <i class="fa-brands fa-facebook-f"></i>
@@ -65,8 +64,8 @@ const About = () => {
                         <a href="https://www.instagram.com/">
                           <i class="fa-brands fa-instagram"></i>
                         </a>
-                    </div>              
-                </div>
+                    </div>
+
                 </div>
 
             </div>
