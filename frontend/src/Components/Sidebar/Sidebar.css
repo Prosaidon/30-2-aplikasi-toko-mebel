@@ -58,3 +58,35 @@
         margin: 0;
     }
 }
+
+/* Media Query untuk layar sangat kecil (Ponsel) */
+@media (max-width: 480px) {
+.sidebar {
+    flex-wrap: wrap; /* Bungkus elemen jika ruang tidak cukup */
+    justify-content: center; /* Pusatkan elemen */
+    padding: 1000px 100px ;
+    margin-top: 0;
+    gap: 50px;
+}
+.dashbar-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 40px 100px;
+    border-radius: 6px;
+    background: #f6f6f6;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.sidebar-item {
+    padding: 50px; /* Padding lebih kecil */
+    gap: 5px;
+}
+
+.sidebar-item img {
+    max-height: 70px; /* Ikon lebih kecil */
+    width: 70px;
+}
+}

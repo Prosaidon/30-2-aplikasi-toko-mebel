@@ -81,7 +81,7 @@
 @media (max-width: 768px) {
     .newsletter {
         height: auto;
-        padding: 20px 400px; /* Tambahkan padding agar terlihat lebih baik */
+        padding: 20px 500px; /* Tambahkan padding agar terlihat lebih baik */
     }
 
     .newsletter h1 {

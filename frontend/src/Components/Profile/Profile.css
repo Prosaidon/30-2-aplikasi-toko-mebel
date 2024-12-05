@@ -82,3 +82,46 @@
         margin: 20px;
     }
 }
+
+/* Responsif untuk layar sangat kecil (ponsel) */
+@media (max-width: 480px) {
+    .profile {
+        padding-top: 100px; /* Kurangi padding atas */
+    }
+
+    .pro-file {
+        padding: 200px; /* Padding lebih kecil */
+        margin: 20px;
+        width: auto;
+    }
+
+    .profile-thumnail-img {
+        max-width: 200px; /* Gambar lebih kecil */
+        max-height: 420px;
+    }
+
+    .profile-itemfield {
+        font-size: 32px; /* Ukuran font lebih kecil */
+        width: 100%;
+        /* padding: 0; */
+        size: 67px;
+    }
+
+    .profile-itemfield input {
+        height: 60px;
+        font-size: 24px; /* Ukuran font yang sesuai */
+        box-sizing: border-box; /* Agar padding dihitung dalam lebar dan tinggi */
+        padding-top: 10px;
+        padding-left: 10px;
+        border-radius: 10px; /* Membulatkan sudut */
+        border: 2px solid #c3c3c3; /* Mengatur ukuran, jenis, dan warna border */
+        outline: none; /* Menghilangkan garis biru saat input aktif */
+        transition: border-color 0.3s; /* Efek transisi untuk border saat hover/fokus */
+    }
+    
+
+    .profile-btn {
+        height: 45px;
+        font-size: 14px;
+    }
+}

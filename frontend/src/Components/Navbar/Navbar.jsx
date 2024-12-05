@@ -10,8 +10,6 @@ import people_icon from '../Assets/people_icon.png'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Anon from '../Assets/people_icon.png'
 
-import logout_icon from '../Assets/logout.png'
-// import { Link, useNavigate } from "react-router-dom";
 import nav_dropdown from '../Assets/img_dropdown.png'
 
 

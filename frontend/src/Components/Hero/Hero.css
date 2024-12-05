@@ -30,13 +30,16 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding: 10px 370px; /* Reduce padding for smaller screens */
+        padding: 10px 500px; /* Reduce padding for smaller screens */
     }
     .hero img {
         width: 1200px; /* Ensures the image scales down correctly */
         height: 100%; /* Preserve aspect ratio */
         object-position: center; /* Keep image centered */
         padding: 10px 300px;
+    }
+    .hero-tagline{
+        padding: 0px 40px;
     }
 }
 @media (max-width: 380px) {

@@ -15,13 +15,21 @@ const AddProduct = () => {
   })
 
   const imageHandler = (e) => {
+    console.log(e); // Log the whole event
+    console.log(e.target); // Ensure target exists and is the file input
+    console.log(e.target.files); // Check if 'files' is defined
     setImage(e.target.files[0]);
   }
   const changeHandler = (e) =>{
     setProductDetails({...productDetails,[e.target.name]:e.target.value})
   }
   const token = localStorage.getItem('auth-token')
+
   const Add_Product = async () =>{
+    if (!image) {
+      console.error("No image selected");
+      return;
+    }
     console.log(productDetails);
     let responseData;
     let product = productDetails;

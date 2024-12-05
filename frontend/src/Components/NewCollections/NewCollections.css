@@ -45,11 +45,11 @@
 @media (max-width: 768px) {
     .collections {
         max-width: 1200px; /* Kurangi ukuran maksimal */
-        padding: 20px; /* Kurangi padding */
+        padding: 20px ; /* Kurangi padding */
     }
 
     .new-collections{
-        padding: 0px 580px;
+        padding: 0px 680px;
     }
     .new-collections h1 {
         font-size: 35px; /* Lebih kecil untuk ponsel */

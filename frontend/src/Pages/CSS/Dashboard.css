@@ -5,3 +5,14 @@
     justify-content:flex-start; /* Align items to the start, leaving space for sidebar */
     gap: 20%; 
 }
+
+@media(max-width: 480px){
+    .dash-board{
+        padding: 1px 0px 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start; /* Align items to the start, leaving space for sidebar */
+        gap: 20%;
+         
+    }
+}

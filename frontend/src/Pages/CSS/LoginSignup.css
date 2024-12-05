@@ -94,3 +94,40 @@
 .loginsignup-agree label {
     cursor: pointer;
 }
+
+
+
+@media (max-width: 480px) {
+    .loginsignup{
+        padding: 800px 500px 800px;
+    }
+    .loginsignup-container {
+        padding: 200px 500px; /* Padding lebih kecil untuk layar sangat kecil */
+    }
+
+    .loginsignup-container h1 {
+        font-size: 54px; /* Font lebih kecil */
+    }
+
+    .loginsignup-container button {
+        height: 70px 50px; /* Tombol lebih kecil */
+        font-size: 46px;
+    }
+
+    .loginsignup-fields input {
+        height: 70px 50px; /* Input lebih kecil */
+        width: 350px;
+        font-size: 24px;
+        padding: 50 100px;
+    }
+
+    .loginsignup-agree {
+        font-size: 22px; /* Font lebih kecil */
+        width: 400px;
+    }
+
+    .loginsignup-login {
+        font-size: 22px; /* Font lebih kecil */
+        width: 400px;
+    }
+}
