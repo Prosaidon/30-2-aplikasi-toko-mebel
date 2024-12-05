@@ -1,6 +1,9 @@
 import React from "react";
 import "./About.css";  // Import the CSS file
 import FeryAle from '../Assets/Tengah_Hutan.png'
+import Rizky from '../Assets/Dayat.png'
+import Ramlan from '../Assets/Ramlan.png'
+ 
 const About = () => {
   return (
     <div className="about-container">
@@ -43,31 +46,33 @@ const About = () => {
 
             </div>
 
+            
             <div class="profile">
-                <img src="image/chef2.png"/>
+            <img src={Rizky} alt="Rizky Hidayatullah"/>
 
                 <div class="info">
                     <h2 class="name">Rizky Hidayatullah</h2>
                     <p class="bio">Lulusan German</p>
-
+                    
+                  <div class="info">
                     <div class="team_icon">
                         <a href="https://web.facebook.com/">
-                	        <i class="fa-brands fa-facebook-f"></i>
-			                 </a>
-			                  <a href="https://web.twitter.com/">
-                	        <i class="fa-brands fa-twitter"></i>
-			                  </a>
-			                  <a href="https://www.instagram.com/">
-                	        <i class="fa-brands fa-instagram"></i>
-			                  </a>
-                    </div>
-
+                          <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://web.twitter.com/">
+                          <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/">
+                          <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>              
+                </div>
                 </div>
 
             </div>
 
             <div class="profile">
-                <img src="image/chef3.jpg"/>
+            <img src={Ramlan} alt="Ramlan Kusuma"/>
 
                 <div class="info">
                     <h2 class="name">Ramlan Kusuma</h2>
@@ -106,19 +111,18 @@ const About = () => {
                 </div>
             </div>
         </div>
+      
 
+  
     </div>
-      <p>
-        Our team consists of passionate individuals committed to delivering
-        high-quality solutions. Together, we work tirelessly to improve and
-        expand our services.
-      </p>
+      
       <h2>Contact Us</h2>
       <p>
         If you have any questions or feedback, feel free to reach out to us at{" "}
         <a href="mabelify@gmail.com">mabelify@gmail.com</a>.
       </p>
     </div>
+    
   );
 };
 

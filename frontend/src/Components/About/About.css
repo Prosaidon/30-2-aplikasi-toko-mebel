@@ -1,148 +1,148 @@
 /* About.css */
 .about-container {
-    padding: 90px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-container h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .about-container h2 {
-    font-size: 28px;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .about-container p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .about-container a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  .about-container a:hover {
-    text-decoration: underline;
-  }
-  
-  
-.team{
-  width: 100%;
-  height: 100vh;
-  /* background-image: url('../Assets/gedung_viktor.jpg'); */
-  background-size: cover;
-  background-position: center;
-  background-position: fixed;
+  padding: 90px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.team h1{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 55px;
-  margin-bottom: 30px;
-}
-
-.team h1 span{
-  color: #555;
-  margin-left: 15px;
-}
-/* 
-.team h1 span::after{
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: #585651;
-  display: block;
-  position: relative;
-  bottom: 15px;
-} */
-
-.team .team_box{
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 13%;
-}
-
-.team .team_box .profile{
-  width: 320px;
-  height: 320px;
-  border-radius: 5%;
-  margin: 0 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
-  transition: 0.4s;
-}
-
-.team .team_box .profile:hover{
-  border-radius: 20px;
-  height: 320px;
-}
-
-.team .team_box .profile img{
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
-  z-index: 2;
-  transition: 0.4s;
-}
-
-.team .team_box .profile:hover img{
-  border-radius: 20px;
-  margin-top: -230px;
-}
-
-.team .team_box .profile .info{
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  text-align: center;
-  top: 17%;
-  transition: 0.4s;
-}
-
-.team .team_box .profile:hover .info{
-  top: 70%;
-}
-
-.team .team_box .profile .info .name{
-  color: #161615;
+.about-container h1 {
+  font-size: 36px;
+  color: #333;
   margin-bottom: 15px;
 }
 
+.about-container h2 {
+  font-size: 28px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.about-container p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-container a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.about-container a:hover {
+  text-decoration: underline;
+}
+
+
+.team{
+width: 100%;
+height: 100vh;
+/* background-image: url('../Assets/gedung_viktor.jpg'); */
+background-size: cover;
+background-position: center;
+background-position: fixed;
+}
+
+.team h1{
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 55px;
+margin-bottom: 30px;
+}
+
+.team h1 span{
+color: #555;
+margin-left: 15px;
+}
+/* 
+.team h1 span::after{
+content: '';
+width: 100%;
+height: 2px;
+background: #585651;
+display: block;
+position: relative;
+bottom: 15px;
+} */
+
+.team .team_box{
+width: 100%;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+top: 13%;
+}
+
+.team .team_box .profile{
+width: 320px;
+height: 320px;
+border-radius: 5%;
+margin: 0 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+box-shadow: 0 0 8px rgba(0,0,0,0.5);
+transition: 0.4s;
+}
+
+.team .team_box .profile:hover{
+border-radius: 20px;
+height: 320px;
+}
+
+.team .team_box .profile img{
+width: 250px;
+height: 250px;
+object-fit: cover;
+object-position: center;
+border-radius: 50%;
+cursor: pointer;
+box-shadow: 0 0 8px rgba(0,0,0,0.5);
+z-index: 2;
+transition: 0.4s;
+}
+
+.team .team_box .profile:hover img{
+border-radius: 20px;
+margin-top: -230px;
+}
+
+.team .team_box .profile .info{
+display: flex;
+flex-direction: column;
+position: absolute;
+text-align: center;
+top: 17%;
+transition: 0.4s;
+}
+
+.team .team_box .profile:hover .info{
+top: 70%;
+}
+
+.team .team_box .profile .info .name{
+color: #161615;
+margin-bottom: 15px;
+}
+
 .team .team_box .profile .info .bio{
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 10px auto;
+width: 100%;
+text-align: center;
+margin: 0 auto 10px auto;
 }
 
 .team .team_box .profile .info .team_icon i{
-  margin: 10px 5px 5px 0;
-  cursor: pointer;
-  transition: 0.3s;
+margin: 10px 5px 5px 0;
+cursor: pointer;
+transition: 0.3s;
 }
 
 .team .team_box .profile .info .team_icon i:hover{
-  color: #fac031;
+color: #fac031;
 }
