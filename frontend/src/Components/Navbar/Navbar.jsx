@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import './Navbar.css'
 import logo from '../Assets/logo-text.png'
@@ -11,6 +11,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Anon from '../Assets/people_icon.png'
 
 import nav_dropdown from '../Assets/img_dropdown.png'
+import { ShopContext } from "../../Context/ShopContext";
 
 
 const Navbar = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
     const menuRef = useRef();
     const userImage = localStorage.getItem('profile-image');
     const isAdmin = localStorage.getItem('isAdmin')
-
+    const {getTotalCaratItems}= useContext(ShopContext)
     // const menuRef = useRef();
 
     const dropdown_toggle = (e) => {
@@ -162,7 +163,12 @@ const Navbar = () => {
                     ? <Link style={{display: 'none'}}/>
                     : <Link to='/login'><img src={people_icon} alt="login" id="login-icon" /></Link>
                 }
-                <Link to='/cart' onClick={handleIconClick}><img src={cart_icon} alt="cart" id="cart-icon" /></Link>
+                <Link to='/cart' onClick={handleIconClick}>
+                    <div className="cart-container">
+                        <img src={cart_icon} alt="cart" id="cart-icon" />
+                        <div className="nav-cart-icon">{getTotalCaratItems()}</div>
+                    </div>
+                </Link>
             </div>
             {showResults && searchResults.length > 0 && (
                 <div className="search-results">

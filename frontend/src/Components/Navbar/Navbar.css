@@ -166,11 +166,31 @@
     border-radius: 500px;
     padding: 2px 2px 2px 2px;
 }
+.cart-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* Agar posisi tetap fleksibel */
+}
+
 #cart-icon {
     width: auto;
     height: 30px;
     padding-top: 4px;
 }
+
+.nav-cart-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -15px; /* Berikan jarak dari ikon keranjang */
+    border-radius: 50%;
+    font-size: 14px;
+    background: red;
+    color: white;
+}
+
 
 .search-results {
     position: absolute;

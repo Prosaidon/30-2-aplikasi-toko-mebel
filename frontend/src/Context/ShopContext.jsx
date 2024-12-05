@@ -90,6 +90,18 @@ const ShopContextProvider = (props) => {
         }
         return totalAmount;
     }
+
+    const getTotalCaratItems = () =>{
+        let totalItem = 0;
+        for(const item in cartItems){
+            if(cartItems[item]>0)
+            {
+                totalItem+= cartItems[item];
+            }
+        }
+        return totalItem;
+    } 
+
     const clearCart = ()=>{
         if(localStorage.getItem('auth-token')){
             try {
@@ -108,12 +120,13 @@ const ShopContextProvider = (props) => {
 
         }
     }
-    const contextValue = {getTotalCartAmount, all_product, cartItems, addToCart, clearCart, removeFromCart};
+    const contextValue = {getTotalCaratItems,getTotalCartAmount, all_product, cartItems, addToCart, clearCart, removeFromCart};
     return(
         <ShopContext.Provider value={contextValue}>
             {props.children}
         </ShopContext.Provider>
     )
+    
 }
 
 export default ShopContextProvider;
