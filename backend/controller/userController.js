@@ -37,6 +37,44 @@ const getUserProfile = async (req, res) => {
       res.status(500).json({ success: false, message: 'Failed to fetch user data' });
     }
 };
+const getAllUsers = async (req, res)=>{
+    let userData = await Users.findOne({ _id: req.user.id });
+    if(!userData.isAdmin){
+        res.status(401).send({error: "User is not an Admin"})
+        return 0;
+    }else{
+        try {
+            const user = await Users.find({});
+            if (!user) {
+              return res.status(404).json({ success: false, message: 'Users not found' });
+            }
+            res.status(200).json({ success: true, user });
+          } catch (error) {
+            res.status(500).json({ success: false, message: 'Failed to fetch users data' });
+          }
+    }
+    
+}
+
+const deleteUser = async (req, res)=>{
+    let userData = await Users.findOne({ _id: req.user.id });
+    if(!userData.isAdmin){
+        res.status(401).send({error: "User is not an Admin"})
+        return 0;
+    }else{
+        try {
+            console.log("Email user: "+ req.body.email);
+            
+            const user = await Users.findOneAndDelete({email: req.body.email});
+            if (!user) {
+              return res.status(404).json({ success: false, message: 'Users not found' });
+            }
+            res.status(200).json({ success: true, user });
+          } catch (error) {
+            res.status(500).json({ success: false, message: 'Failed to fetch users data' });
+          }
+    }
+}
 
 const saveUser= async(req,res)=>{
     
@@ -72,5 +110,7 @@ const saveUser= async(req,res)=>{
 module.exports= {
     saveUser,
     userImage,
-    getUserProfile
+    getUserProfile,
+    getAllUsers,
+    deleteUser
 }

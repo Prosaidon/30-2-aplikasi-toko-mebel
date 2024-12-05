@@ -19,8 +19,6 @@ export default function Transaction() {
         .then((res)=>res.json())
         .then((data)=>{setallTransactions(data)});
       }
-   
-    
 
     useEffect(()=>{
         fetchInfo();
@@ -92,7 +90,9 @@ const transformedTransactions = transactionArray.map(transaction => {
             {transformedTransactions.map((transaction, index) => {
             return <> 
             <div key={index} className="transaction-list-format-main">
-                <p>Customer: {transaction.customer.name}</p>
+                <p>Customer: {transaction.customer.name}
+                  <br />({transaction.customer.email})
+                </p>
                 <p className='total'>Total : {formatPrice(transaction.total)}
                     <br />
                     <br />Subtotal : {formatPrice(transaction.subtotal)}

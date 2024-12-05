@@ -18,6 +18,7 @@ const {
     deleteTransaction, 
 } = require('../controller/product-controller.js');
 const {checkout} = require('../controller/checkOutController.js')
+const {getAllUsers, deleteUser} = require('../controller/userController.js')
 const fetchUser = require('../middleware/fetchUser.js')
 const upload = require('../middleware/UploadImg.js')
 
@@ -28,6 +29,9 @@ router.post('/getcart', fetchUser, getCart )
 router.post('/checkout', checkout)
 router.post('/clearcart',fetchUser, clearCart)
 
+// Users routes for admin page
+router.get('/all-users',fetchUser, getAllUsers);
+router.delete('/remove-user', fetchUser, deleteUser)
 // Product routes
 router.post('/upload', upload.single('produk'), fetchUser, UploadIMG)
 router.post('/addproduct',fetchUser, addProduct);

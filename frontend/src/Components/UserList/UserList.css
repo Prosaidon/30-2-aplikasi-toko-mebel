@@ -1,0 +1,67 @@
+.list-user{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 10px 50px;
+    margin: 30px;
+    border-radius: 6px;
+    background: white;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.listuser-format-main{
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr 2fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    padding: 20px 0px;
+    color: #454545;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.listuser-format{
+    align-items: center;
+    font-weight: 500;
+}
+
+.listuser-icon{
+    height: 100px;
+}
+
+.listuser-user-icon{
+    max-width: 45px;
+    width: 100px;
+}
+.listuser-remove-icon{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.status{
+    color: darkred;
+}
+
+@media(max-width:800px){
+    .list-user{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px;
+        margin: 20px auto;
+    }
+    .listuser-format-main{
+        padding: 15px 0px;
+        color: #454545;
+        font-size: 12px;
+    }
+    .listuser-remove-icon{
+        height: 50px;
+    }
+}

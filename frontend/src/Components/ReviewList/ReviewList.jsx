@@ -31,6 +31,7 @@ const ReviewList = () => {
         throw new Error('Error fetching orders');
       }
       const orders = await response.json();
+      // console.log("All Orders: "+ JSON.stringify(orders));
       const userId = localStorage.getItem('user-id');
       const userOrders = orders.filter(order => order.userId === userId);
       console.log("User orders:", userOrders); // Log order data

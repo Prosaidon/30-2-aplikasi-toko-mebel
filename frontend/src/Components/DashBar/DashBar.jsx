@@ -9,7 +9,8 @@ const handleClick = ()=>{
   if(confirmLogout){
     localStorage.removeItem('auth-token');
     localStorage.removeItem('user-id');localStorage.removeItem('user-name'); 
-    localStorage.removeItem('isAdmin')
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('profile-image');
     window.location.replace("/"); 
     
   }

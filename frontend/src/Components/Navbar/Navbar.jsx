@@ -18,6 +18,7 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [showAdmin, setShowAdmin] = useState(false)
     const [showNavbar, setShowNavbar] = useState(true); // State untuk visibilitas navbar
     const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
     const navigate = useNavigate();
@@ -91,6 +92,17 @@ const Navbar = () => {
         };
     }, [lastScrollY]);
 
+    const handleIconClick = ()=>{
+        window.scrollTo(0, 0)
+    }
+
+    const handleLink = ()=>{
+        if (isAdmin !== 'true') {
+            setShowAdmin(false)
+        }else{
+            setShowAdmin(true)
+        }
+    }
     const handleResultClick = (productId) => {
         window.scrollTo(0, 0); // Scroll ke atas
         navigate(`/product/${productId}`);
@@ -136,7 +148,7 @@ const Navbar = () => {
                     <Link to=''><img onClick={searchHandler} src={search_icon} alt="search" id="search_icon" /></Link>
                 </div>
                 {localStorage.getItem('auth-token') && ( // Menampilkan hanya jika ada token
-                    <Link to={isAdmin? '/admin': '/dashboard'}><img className="pfp" src={userImage ? userImage : Anon} alt="" />
+                    <Link to={showAdmin? '/admin': '/dashboard'} onClick={handleIconClick} onFocus={handleLink}><img className="pfp" src={userImage ? userImage : Anon} alt="" />
                     </Link>
                     
                 )}
@@ -150,7 +162,7 @@ const Navbar = () => {
                     ? <Link style={{display: 'none'}}/>
                     : <Link to='/login'><img src={people_icon} alt="login" id="login-icon" /></Link>
                 }
-                <Link to='/cart'><img src={cart_icon} alt="cart" id="cart-icon" /></Link>
+                <Link to='/cart' onClick={handleIconClick}><img src={cart_icon} alt="cart" id="cart-icon" /></Link>
             </div>
             {showResults && searchResults.length > 0 && (
                 <div className="search-results">

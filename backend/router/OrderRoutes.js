@@ -19,7 +19,13 @@ router.get('/orders/:productId', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-
+router.get('/orders/user', async (req, res)=>{
+  let userData = await Users.findOne({_id:req.user.id});
+  if(!userData){
+    return res.status(404).json({error: 'User not found'});
+  }
+  const order = await Order.find({})
+})
 router.get('/orders', async (req, res) => {
   try {
     const orders = await Order.find(); // Mengambil semua order dari koleksi Order
