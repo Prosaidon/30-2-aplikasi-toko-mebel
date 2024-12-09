@@ -4,11 +4,12 @@ import remove_icon from '../Assets/remove-icon.png'
 import { useState, useEffect } from 'react';
 
 export default function Transaction() {
+    const API_URL = process.env.REACT_APP_API_URL;
     const [allTransactions,setallTransactions] = useState([]);
     const token = localStorage.getItem('auth-token')
 
     const fetchInfo = async ()=>{
-        await fetch ('http://localhost:4000/all-transactions',{
+        await fetch (`${API_URL}/all-transactions`,{
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -27,7 +28,7 @@ export default function Transaction() {
     const remove_transaction = async(id)=>{
         const userConfirmed = window.confirm('Yakin ingin menghapus transaksi?');
         if(userConfirmed){
-          await fetch('http://localhost:4000/remove-transactions', {
+          await fetch(`${API_URL}/remove-transactions`, {
             method:'DELETE',
             headers:{
               Accept: 'application/json',

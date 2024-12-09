@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import remove_icon from '../Assets/remove-icon.png'
 import Anon from '../Assets/people_icon.png'
 export default function UserList() {
-
+        
+    const API_URL = process.env.REACT_APP_API_URL;
     const [allUsers,setallUsers] = useState([]);
     
     const token = localStorage.getItem('auth-token')
     const fetchInfo = async ()=>{
-      await fetch ('http://localhost:4000/all-users',{
+      await fetch (`${API_URL}/all-users`,{
         method: 'GET',
             headers:{
                 'Content-Type': 'application/json',
@@ -27,7 +28,7 @@ export default function UserList() {
     const removeUser = async(id)=>{
         const userConfirmed = window.confirm('Yakin ingin menghapus User?');
         if(userConfirmed){
-          await fetch('http://localhost:4000/remove-user', {
+          await fetch(`${API_URL}/remove-user`, {
             method:'DELETE',
             headers:{
               Accept: 'application/json',

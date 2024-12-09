@@ -3,6 +3,8 @@ import axios from 'axios'
 import { ShopContext } from '../../Context/ShopContext'
 
 const CheckOutButton = ({cartItems}) => {
+    
+    const API_URL = process.env.REACT_APP_API_URL;
     const {clearCart} = useContext(ShopContext)
     const userEmail = localStorage.getItem('user-id')
     const handleCheckout = ()=>{
@@ -10,7 +12,7 @@ const CheckOutButton = ({cartItems}) => {
             alert("Please Login first")
             window.location.href = '/login';
         }
-        axios.post("http://localhost:4000/checkout", {
+        axios.post(`${API_URL}/checkout`, {
             cartItems,
             userEmail
         }).then((res)=>{

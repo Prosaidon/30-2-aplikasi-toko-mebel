@@ -176,6 +176,8 @@
     width: auto;
     height: 30px;
     padding-top: 4px;
+    
+    text-decoration: none;
 }
 
 .nav-cart-icon {
@@ -183,6 +185,7 @@
     height: 22px;
     display: flex;
     justify-content: center;
+    text-decoration: none;
     align-items: center;
     margin-left: -15px; /* Berikan jarak dari ikon keranjang */
     border-radius: 50%;

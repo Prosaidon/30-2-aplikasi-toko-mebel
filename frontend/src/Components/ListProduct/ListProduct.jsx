@@ -3,12 +3,13 @@ import './ListProduct.css'
 import remove_icon from '../Assets/remove-icon.png'
 
 const ListProduct = () => {
-
+  
+    const API_URL = process.env.REACT_APP_API_URL;
     const [allproducts,setAllProducts] = useState([]);
     
     const token = localStorage.getItem('auth-token')
     const fetchInfo = async ()=>{
-      await fetch ('http://localhost:4000/allproducts')
+      await fetch (`${API_URL}/allproducts`)
       .then((res)=>res.json())
       .then((data)=>{setAllProducts(data)});
     }
@@ -20,7 +21,7 @@ const ListProduct = () => {
     const remove_product = async(id)=>{
       const userConfirmed = window.confirm('Yakin ingin menghapus Produk?');
       if(userConfirmed){
-        await fetch('http://localhost:4000/removeproduct', {
+        await fetch(`${API_URL}/removeproduct`, {
           method:'DELETE',
           headers:{
             Accept: 'application/json',

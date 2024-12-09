@@ -6,10 +6,12 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 const RelatedProducts = () => {
+  
+  const API_URL = process.env.REACT_APP_API_URL;
   const [relatedProducts,setRelatedProd] = useState([]);
   const {productId} = useParams();
   useEffect(() => {
-    fetch(`http://localhost:4000/relatedproduct?productId=${productId}`, {
+    fetch(`${API_URL}/relatedproduct?productId=${productId}`, {
       method: 'GET',
     })
       .then((response) => response.json())

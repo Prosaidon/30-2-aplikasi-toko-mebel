@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react'
 
 export const ShopContext = createContext(null)
+const API_URL = process.env.REACT_APP_API_URL;
 
 
 const getDefaultCart = ()=>{
@@ -18,7 +19,7 @@ const ShopContextProvider = (props) => {
 
     
     useEffect(()=>{
-        fetch('http://localhost:4000/allproducts')
+        fetch(`${API_URL}/allproducts`)
         .then((response)=>{
             if (!response.ok) {
             throw new Error('Failed to fetch all products');
@@ -35,7 +36,7 @@ const ShopContextProvider = (props) => {
         .catch(error => {
           console.error('Error fetching all products:', error);})
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart', {
+            fetch(`${API_URL}/getcart`, {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -51,7 +52,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}));
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/addtocart', {
+            fetch(`${API_URL}/addtocart`, {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -65,7 +66,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/removefromcart', {
+            fetch(`${API_URL}/removefromcart`, {
                 method: 'POST',
                 headers:{
                     Accept: 'application/form-data',
@@ -91,7 +92,7 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
-    const getTotalCaratItems = () =>{
+    const getTotalCartItems = () =>{
         let totalItem = 0;
         for(const item in cartItems){
             if(cartItems[item]>0)
@@ -105,7 +106,7 @@ const ShopContextProvider = (props) => {
     const clearCart = ()=>{
         if(localStorage.getItem('auth-token')){
             try {
-                fetch("http://localhost:4000/clearcart", {
+                fetch(`${API_URL}/clearcart`, {
                     method:'POST',
                     headers:{
                         Accept: 'application/form-data',
@@ -120,7 +121,7 @@ const ShopContextProvider = (props) => {
 
         }
     }
-    const contextValue = {getTotalCaratItems,getTotalCartAmount, all_product, cartItems, addToCart, clearCart, removeFromCart};
+    const contextValue = {getTotalCartItems,getTotalCartAmount, all_product, cartItems, addToCart, clearCart, removeFromCart};
     return(
         <ShopContext.Provider value={contextValue}>
             {props.children}

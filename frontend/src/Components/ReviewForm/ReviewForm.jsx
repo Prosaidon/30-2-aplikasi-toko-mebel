@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './ReviewForm.css';
 
 const ReviewForm = ({ review, onSave }) => {
+  
+  const API_URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const { productId } = useParams(); // Mengambil productId dari URL
   const [rating, setRating] = useState(review ? review.rating : 1);
@@ -21,7 +23,7 @@ const ReviewForm = ({ review, onSave }) => {
   const fetchPaymentIntentId = async () => {
     try {
       const token = localStorage.getItem('auth-token');
-      const response = await fetch(`http://localhost:4000/api/orders/${productId}`, { // Perhatikan url /api/orders
+      const response = await fetch(`${API_URL}/api/orders/${productId}`, { // Perhatikan url /api/orders
         method: 'GET',
         headers: {
           'auth-token': token,
@@ -52,7 +54,7 @@ const ReviewForm = ({ review, onSave }) => {
       comment,
     };
 
-    const url = review ? `http://localhost:4000/reviews/${review._id}` : 'http://localhost:4000/reviews/add';
+    const url = review ? `${API_URL}/reviews/${review._id}` : `${API_URL}/reviews/add`;
     const method = review ? 'PUT' : 'POST';
 
     try {

@@ -4,9 +4,10 @@ import Item from '../Item/Item'
 
 const Popular = () => {
 
+  const API_URL = process.env.REACT_APP_API_URL;
   const [popularProducts,setPopularProducts] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:4000/popular-in-office')
+    fetch(`${API_URL}/popular-in-office`)
     .then((response)=>response.json())
     .then((data)=>setPopularProducts(data));
   },[])

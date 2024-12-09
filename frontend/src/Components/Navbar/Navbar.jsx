@@ -16,6 +16,8 @@ import { ShopContext } from "../../Context/ShopContext";
 
 const Navbar = () => {
 
+        
+    const API_URL = process.env.REACT_APP_API_URL;
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
@@ -28,7 +30,7 @@ const Navbar = () => {
     const menuRef = useRef();
     const userImage = localStorage.getItem('profile-image');
     const isAdmin = localStorage.getItem('isAdmin')
-    const {getTotalCaratItems}= useContext(ShopContext)
+    const {getTotalCartItems}= useContext(ShopContext)
     // const menuRef = useRef();
 
     const dropdown_toggle = (e) => {
@@ -49,7 +51,7 @@ const Navbar = () => {
 
     const searchHandler = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/search?query=${searchQuery}`);
+            const response = await axios.get(`${API_URL}/search?query=${searchQuery}`);
             setSearchResults(response.data);
             setShowResults(true);
         } catch (error) {
@@ -166,7 +168,7 @@ const Navbar = () => {
                 <Link to='/cart' onClick={handleIconClick}>
                     <div className="cart-container">
                         <img src={cart_icon} alt="cart" id="cart-icon" />
-                        <div className="nav-cart-icon">{getTotalCaratItems()}</div>
+                        <div className="nav-cart-icon">{getTotalCartItems()}</div>
                     </div>
                 </Link>
             </div>

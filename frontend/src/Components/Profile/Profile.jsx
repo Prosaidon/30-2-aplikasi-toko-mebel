@@ -5,7 +5,7 @@ import Anon from '../Assets/people_icon.png'
 
 const Profile = ()=> {
 
-    
+const API_URL = process.env.REACT_APP_API_URL;
 const [image,setImage] = useState(false);
 const [UserDetails,setUserDetails] = useState({
   name: "",
@@ -21,7 +21,7 @@ const token = localStorage.getItem('auth-token');
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:4000/profile', {
+        const response = await fetch(`${API_URL}/profile`, {
           method: 'GET',
           headers: {
             'auth-token': token,
@@ -67,7 +67,7 @@ const Add_User = async () =>{
   
   if(image){
     
-    await fetch('http://localhost:4000/profile/image', {
+    await fetch(`${API_URL}/profile/image`, {
       method:'POST',
       headers:{
           Accept: 'application/json',
@@ -89,7 +89,7 @@ const Add_User = async () =>{
   {
     User.image = responseData.image_url;
     console.log(User);
-    await fetch('http://localhost:4000/profile',{
+    await fetch(`${API_URL}/profile`,{
       method:'POST',
       headers:{
         Accept:'application/json',

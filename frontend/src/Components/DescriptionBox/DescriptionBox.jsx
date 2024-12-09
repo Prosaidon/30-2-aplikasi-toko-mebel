@@ -6,6 +6,8 @@ import StarRating from '../StarRating/StarRating';
 import axios from 'axios';
 
 const DescriptionBox = () => {
+  
+  const API_URL = process.env.REACT_APP_API_URL;
   const { productId } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -14,7 +16,7 @@ const DescriptionBox = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/reviews/${productId}`);
+        const response = await axios.get(`${API_URL}/reviews/${productId}`);
         const reviewsData = response.data;
 
         console.log('Fetched reviews data:', reviewsData);

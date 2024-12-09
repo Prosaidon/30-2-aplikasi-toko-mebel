@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import './ReviewList.css';
 
 const ReviewList = () => {
+  
+  const API_URL = process.env.REACT_APP_API_URL;
   const { productId } = useParams();
   const [orderList, setOrderList] = useState([]);
   const [reviewList, setReviewList] = useState([]);
@@ -21,7 +23,7 @@ const ReviewList = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem('auth-token');
-      const response = await fetch('http://localhost:4000/api/orders', {
+      const response = await fetch(`${API_URL}/api/orders`, {
         method: 'GET',
         headers: {
           'auth-token': token,
@@ -43,7 +45,7 @@ const ReviewList = () => {
 
   const fetchReviews = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:4000/reviews/${productId}`);
+      const response = await fetch(`${API_URL}/reviews/${productId}`);
       if (!response.ok) {
         throw new Error('Error fetching reviews');
       }
@@ -60,7 +62,7 @@ const ReviewList = () => {
       const token = localStorage.getItem('auth-token');
       const userId = localStorage.getItem('user-id');
 
-      const response = await fetch(`http://localhost:4000/reviews/${reviewId}`, {
+      const response = await fetch(`${API_URL}/reviews/${reviewId}`, {
         method: 'PUT',
         headers: {
           'auth-token': token,
@@ -86,7 +88,7 @@ const ReviewList = () => {
     try {
       const token = localStorage.getItem('auth-token');
 
-      const response = await fetch(`http://localhost:4000/reviews/${reviewId}`, {
+      const response = await fetch(`${API_URL}/reviews/${reviewId}`, {
         method: 'DELETE',
         headers: {
           'auth-token': token,
